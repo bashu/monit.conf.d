@@ -1,0 +1,5 @@
+check process jenkins with pidfile /var/run/jenkins/jenkins.pid
+	start program = "/etc/init.d/jenkins start"
+	stop program = "/etc/init.d/jenkins stop"
+	if failed port 8090 then restart
+	if 5 restarts within 5 cycles then timeout
