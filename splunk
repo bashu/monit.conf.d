@@ -1,0 +1,6 @@
+check process splunk with pidfile /opt/splunk/var/run/splunk/splunkweb.pid
+	start program = "/etc/init.d/splunk start"
+	stop  program = "/etc/init.d/splunk stop"
+	if failed host 127.0.0.1 port 8000 
+        	protocol HTTP request "/en-US/account/login" then restart
+	if 5 restarts within 5 cycles then timeout
