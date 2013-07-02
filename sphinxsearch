@@ -1,0 +1,5 @@
+check process sphinxsearch with pidfile /var/run/searchd.pid
+	start program = "/etc/init.d/sphinxsearch start"
+	stop program = "/etc/init.d/sphinxsearch stop"
+	if failed port 9312 then restart
+	if 5 restarts within 5 cycles then timeout
