@@ -1,0 +1,23 @@
+check process delayed_job.0
+  with pidfile /u1/redzone/shared/pids/delayed_job.0.pid
+  start program = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 0 start RAILS_ENV=production'"
+  stop program  = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 0 stop RAILS_ENV=production'"
+  group delayed_jobs
+
+check process delayed_job.1
+  with pidfile /u1/redzone/shared/pids/delayed_job.1.pid
+  start program = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 1 start RAILS_ENV=production'"
+  stop program  = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 1 stop RAILS_ENV=production'"
+  group delayed_jobs
+
+check process delayed_job.2
+  with pidfile /u1/redzone/shared/pids/delayed_job.2.pid
+  start program = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 2 --queue=mailers start RAILS_ENV=production'"
+  stop program  = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 2 stop RAILS_ENV=production'"
+  group delayed_jobs
+
+check process delayed_job.3
+  with pidfile /u1/redzone/shared/pids/delayed_job.3.pid
+  start program = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 3 --queue=reports start RAILS_ENV=production'"
+  stop program  = "/bin/su - redzone -c 'cd /u1/redzone/current && bundle exec script/delayed_job -i 3 stop RAILS_ENV=production'"
+  group delayed_jobs
