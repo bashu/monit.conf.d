@@ -1,0 +1,2 @@
+check host arbitrary_name with address real_url
+  if failed port 80 proto http then alert
