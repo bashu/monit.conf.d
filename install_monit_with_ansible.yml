@@ -1,0 +1,16 @@
+- name: Check if monit was already installed
+  command: pgrep -f monit
+  register: was_monit_installed
+  changed_when: was_monit_installed.rc == 1
+  failed_when: false
+  tags: monit
+ 
+- name: Download Monit {{ monit.version }}
+  get_url: url=http://mmonit.com/monit/dist/monit-{{ monit.version }}.tar.gz dest=/usr/local/src
+  when: was_monit_installed.rc == 1
+  tags: monit
+ 
+- name: Extract archive
+  command: tar zxvf monit-{{ monit.version }}.tar.gz chdir=/usr/local/src
+  when: was_monit_installed.rc == 1
+  tags: monit
