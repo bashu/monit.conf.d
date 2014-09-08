@@ -1,0 +1,2 @@
+check file restart.txt with path /var/www/application/current/tmp/restart.txt
+   if timestamp > 61 seconds then alert
