@@ -1,3 +1,5 @@
+# replace application directory
+
 check process sidekiq
   with pidfile /var/www/application/shared/pids/sidekiq.pid
   start program = "/etc/init.d/sidekiq start"
