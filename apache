@@ -1,0 +1,7 @@
+check process apache 
+    with pidfile "/var/run/httpd.pid" 
+    start program = "/etc/init.d/apache2 start"
+    stop  program = \"/etc/init.d/apache2 stop"
+    if failed host 127.0.0.1 port 80
+        protocol HTTP request /monit/token then restart
+    if 5 restarts within 5 cycles then timeout
