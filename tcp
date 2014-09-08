@@ -1,0 +1,6 @@
+check host domain.com with address 192.168.1.1
+   if failed icmp type echo with timeout 4 seconds then alert
+   if failed port 21 then alert
+   if failed port 22 type tcp 22 with timeout 40 seconds then aler
+   if failed port 80 protocol http then alert
+   if failed port 389 type tcp with timeout 15 seconds then alert
