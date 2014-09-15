@@ -1,0 +1,8 @@
+# HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
+check process haproxy
+  with pidfile /var/run/haproxy.pid
+  start program = "/usr/sbin/haproxy -D -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid"
+  stop program  = "/usr/sbin/haproxy stop"
+
+check file haproxy.cfg with path /etc/haproxy/haproxy.cfg
+   if changed timestamp then alert

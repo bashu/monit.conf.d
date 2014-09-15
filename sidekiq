@@ -1,0 +1,12 @@
+# replace application directory
+
+check process sidekiq
+  with pidfile /var/www/application/shared/pids/sidekiq.pid
+  start program = "/etc/init.d/sidekiq start"
+  stop program = "/etc/init.d/stop stop"
+
+  if mem is greater than 300.0 MB for 1 cycles then restart       # eating up memory?
+  if cpu is greater than 50% for 2 cycles then alert                  # send an email to admin
+  if cpu is greater than 80% for 3 cycles then restart                # hung process?
+
+  group sidekiq

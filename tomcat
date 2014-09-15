@@ -1,0 +1,7 @@
+check process tomcat with pidfile /var/run/tomcat.pid
+   start program = "/etc/init.d/tomcat start" 
+     as uid nobody and gid nobody
+   stop program  = "/etc/init.d/tomcat stop"
+     # You can also use id numbers instead and write:
+     as uid 99 and with gid 99
+   if failed port 8080 then alert

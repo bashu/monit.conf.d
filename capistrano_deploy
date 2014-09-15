@@ -1,0 +1,5 @@
+check file restart.txt with path /var/www/application/current/tmp/restart.txt
+   if timestamp > 61 seconds then alert
+
+check directory releases with path /var/www/application/releases
+   if timestamp < 61 seconds then alert
