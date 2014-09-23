@@ -1,4 +1,4 @@
-check process papertrail
+check process Papertrail
   with pidfile /var/run/remote_syslog.pid
   start program = "/usr/bin/ruby /usr/bin/remote_syslog -c /u1/redzone/shared/config/log_files.yml --pid-file=/var/run/remote_syslog.pid"
   stop program  = "/usr/bin/ruby /usr/bin/remote_syslog stop"
