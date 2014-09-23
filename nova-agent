@@ -1,0 +1,5 @@
+# https://github.com/rackerlabs/openstack-guest-agents-unix
+check process nova-agent
+  with pidfile /var/run/nova-agent.pid
+  start program = "/usr/sbin/nova-agent -q -p /var/run/nova-agent.pid -o /var/log/nova-agent.log -l info /usr/share/nova-agent/nova-agent.py"
+  stop program  = "/usr/sbin/nova-agent stop"
