@@ -5,6 +5,3 @@ check system localhost
   if cpu usage (user) > 70% then alert
   if cpu usage (system) > 30% then alert
   if cpu usage (wait) > 20% then alert
-
-check filesystem root-filesystem with path /
-  if space usage is greater than 75% for 5 cycles then alert
