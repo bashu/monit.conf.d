@@ -1,5 +1,4 @@
 check process nginx with pidfile /var/run/nginx.pid
-	group www-data
 	start program = "/etc/init.d/nginx start"
 	stop program  = "/etc/init.d/nginx stop"
 	if failed port 80 then restart	
