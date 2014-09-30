@@ -1,0 +1,4 @@
+check process New-Relic
+  with pidfile /var/run/newrelic/nrsysmond.pid
+  start program = "/etc/init.d/newrelic-sysmond start"
+  stop program  = "/etc/init.d/newrelic-sysmond stop"
