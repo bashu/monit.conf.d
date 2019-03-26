@@ -1,7 +1,8 @@
-check process apache 
-    with pidfile "/var/run/httpd/httpd.pid" 
-    start program = "/etc/init.d/httpd start"
-    stop  program = "/etc/init.d/httpd stop"
-    if failed host 127.0.0.1 port 80
-         protocol HTTP request / then restart
-     if 5 restarts within 5 cycles then timeout
+check process apache with pidfile "/var/run/httpd/httpd.pid" 
+
+	start program = "/etc/init.d/httpd start"
+	stop  program = "/etc/init.d/httpd stop"
+
+	if failed host localhost port 80 protocol HTTP request then restart
+
+	if 3 restarts within 5 cycles then alert

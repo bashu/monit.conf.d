@@ -1,4 +1,8 @@
 check process zookeeper matching “zookeeper.jar”
-  start program = “/usr/sbin/service zookeeper start”
-  stop program = “/usr/sbin/service zookeeper stop”
-  if totalmem > 250 MB for 3 cycles then restart
+
+	start program = “/usr/sbin/service zookeeper start”
+	stop program = “/usr/sbin/service zookeeper stop”
+
+	if totalmem > 250 MB for 3 cycles then restart
+
+	if 3 restarts within 5 cycles then alert
