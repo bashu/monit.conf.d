@@ -1,10 +1,2 @@
-check filesystem root with path /dev/sda4
-    if space usage > 80% for 5 times within 15 cycles then alert
-
-check filesystem home with path /dev/sda5
-   if space usage > 80% for 5 times within 15 cycles then alert
-
-check filesystem var with path /dev/sda6
-    if space usage > 80% for 5 times within 15 cycles then alert
-
-check filesystem boot with path /dev/sda2
+check filesystem root-filesystem with path /
+	if space usage is greater than 75% for 5 cycles then alert

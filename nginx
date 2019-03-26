@@ -1,16 +1,14 @@
 check process nginx with pidfile /run/nginx.pid
 
-    group www-data
+	group www-data
 
-    start program = "/etc/init.d/nginx start"
-    stop program  = "/etc/init.d/nginx stop"
+	start program = "/etc/init.d/nginx start"
+	stop program  = "/etc/init.d/nginx stop"
 
-    if failed port 80  for 2 cycles then restart
-    if failed port 443 for 2 cycles then restart
+	if failed port 80  for 2 cycles then restart
+	if failed port 443 for 2 cycles then restart
 
-    if failed host domain.tld     port 80 protocol http then alert
-    if failed host www.domain.tld port 80 protocol http then alert
+	if failed host domain.tld     port 80 protocol http then alert
+	if failed host www.domain.tld port 80 protocol http then alert
 
-    if 3 restarts within 5 cycles then alert
-
-    depends on php-fpm
+	if 3 restarts within 5 cycles then alert
